@@ -45,6 +45,10 @@ fext() {
     find . -type f -name "*.$1" 2>/dev/null
 }
 
+show_funcs() {
+    cat ~/dotfiles/.custom_funcs.sh | less
+}
+
 #####################################
 # End custom functions
 #####################################

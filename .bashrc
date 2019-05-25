@@ -144,8 +144,8 @@ esac
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/dotfiles/.aliases.zsh ]; then
-    source ~/dotfiles/.aliases.zsh
+if [ -f ~/dotfiles/.aliases ]; then
+    source ~/dotfiles/.aliases
 fi
 if [ -f ~/dotfiles/.grep_colors.sh ]; then
     source ~/dotfiles/.grep_colors.sh
