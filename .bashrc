@@ -38,15 +38,15 @@ dir_size()
 }
 
 mygrep () {
-    find . -name "*$2" -exec grep "$1" {} +
+    find . -name "$2"  2>/dev/null -exec grep "$1" {} +
 }
 
 ffind() {
-    find . -name "$1*"
+    find . -name "$1*" 2>/dev/null
 }
 
 fext() {
-    find . -type f -name "*.$1"
+    find . -type f -name "*.$1" 2>/dev/null
 }
 
 #####################################
@@ -147,6 +147,9 @@ esac
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
+if [ -f ~/.grep_colors.sh ]; then
+    . ~/.grep_colors.sh
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -165,4 +168,4 @@ export LD_LIBRARY_PATH=/usr/local/lib
 add_to_path /home/brian/scripts "end"
 
 export PATH
-
+export EDITOR='subl -w'
