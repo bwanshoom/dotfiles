@@ -6,48 +6,48 @@
 # Begin custom functions
 #####################################
 
-add_to_path()
-{
-    path_list=`echo $PATH | tr ':' ' '`
-    new_dir=$1
-    for d in $path_list
-    do
-    	if [ $d == $new_dir ]
-    	then
-    		return 0
-    	fi
-    done
-    if [ -n $2 ] && [ $2 == "end" ]
-    then
-	    export PATH=$PATH:$new_dir
-	else
-	    export PATH=$new_dir:$PATH
-	fi
-}
+# add_to_path()
+# {
+#     path_list=`echo $PATH | tr ':' ' '`
+#     new_dir=$1
+#     for d in $path_list
+#     do
+#     	if [ $d == $new_dir ]
+#     	then
+#     		return 0
+#     	fi
+#     done
+#     if [ -n $2 ] && [ $2 == "end" ]
+#     then
+# 	    export PATH=$PATH:$new_dir
+# 	else
+# 	    export PATH=$new_dir:$PATH
+# 	fi
+# }
 
-install_from_file()
-{
-    xargs -a <(awk '! /^ *(#|$)/' "$1") -r -- sudo apt-get install -y
-    # xargs -a <(awk '! /^ *(#|$)/' "$packagelist") -r -- sudo apt-get install -y
-}
+# install_from_file()
+# {
+#     xargs -a <(awk '! /^ *(#|$)/' "$1") -r -- sudo apt-get install -y
+#     # xargs -a <(awk '! /^ *(#|$)/' "$packagelist") -r -- sudo apt-get install -y
+# }
 
 
-dir_size()
-{
-    du -h --max-depth=1 "$1" 2>/dev/null | sort -hr
-}
+# dir_size()
+# {
+#     du -h --max-depth=1 "$1" 2>/dev/null | sort -hr
+# }
 
-mygrep () {
-    find . -name "$2"  2>/dev/null -exec grep "$1" {} +
-}
+# mygrep () {
+#     find . -name "$2"  2>/dev/null -exec grep "$1" {} +
+# }
 
-ffind() {
-    find . -name "$1*" 2>/dev/null
-}
+# ffind() {
+#     find . -name "$1*" 2>/dev/null
+# }
 
-fext() {
-    find . -type f -name "*.$1" 2>/dev/null
-}
+# fext() {
+#     find . -type f -name "*.$1" 2>/dev/null
+# }
 
 #####################################
 # End custom functions
@@ -144,11 +144,15 @@ esac
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
+if [ -f ~/dotfiles/.aliases.zsh ]; then
+    source ~/dotfiles/.aliases.zsh
 fi
-if [ -f ~/.grep_colors.sh ]; then
-    . ~/.grep_colors.sh
+if [ -f ~/dotfiles/.grep_colors.sh ]; then
+    source ~/dotfiles/.grep_colors.sh
+fi
+
+if [ -f ~/dotfiles/.custom_funcs.sh ]; then
+    source ~/dotfiles/.custom_funcs.sh
 fi
 
 # enable programmable completion features (you don't need to enable
