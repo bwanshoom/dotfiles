@@ -5,6 +5,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias d='dirs -v | head -10'
 
 # Shortcuts
 alias dl="cd ~/Downloads"
@@ -125,3 +126,5 @@ alias gac="git add . && git commit -a -m "
 
 # search through terminal history
 alias hs='history | grep'
+
+alias seet='set | less'
