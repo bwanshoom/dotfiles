@@ -27,10 +27,19 @@ install_from_file()
     # xargs -a <(awk '! /^ *(#|$)/' "$packagelist") -r -- sudo apt-get install -y
 }
 
-
 dir_size()
 {
     du -h --max-depth=1 "$1" 2>/dev/null | sort -hr
+}
+
+# Show top 10 largest files in current directory and below
+bigf() {
+    find -xdev -type f -size +100M -exec du -Sh {} + 2>/dev/null | sort -rh | head -10
+}
+
+# Show top 10 largest directories in current directory and below
+bigd() {
+    \du -hsx * 2>/dev/null | sort -rh | head -10
 }
 
 mygrep () {
@@ -50,6 +59,7 @@ ffind() {
     fi
 }
 
+# Find all files with the given extension in current directory
 fext() {
     if [ "$#" -ne 1 ]; then
         echo "USAGE : fext extension"
@@ -58,16 +68,7 @@ fext() {
     fi
 }
 
-# Show top 10 largest files in current directory and below
-bigf() {
-    find -xdev -type f -size +100M -exec du -Sh {} + 2>/dev/null | sort -rh | head -10
-}
-
-# Show top 10 largest directories in current directory and below
-bigd() {
-    \du -hsx * 2>/dev/null | sort -rh | head -10
-}
-
+# Find all files with the given extension in subdirectories
 fext2() {
     if [ "$#" -ne 1 ]; then
         echo "USAGE : fext2 extension"
@@ -76,10 +77,16 @@ fext2() {
     fi
 }
 
+# Show these custom functions
 show_funcs() {
-    cat ~/dotfiles/.custom_funcs.sh | less
+    if [ -f ~/dotfiles/.custom_funcs.sh ]; then
+        cat ~/dotfiles/.custom_funcs.sh | less
+    else
+        echo "File not found: ~/dotfiles/.custom_funcs.sh"
+    fi
 }
 
+# Reload the configuration for the current shell
 reload() {
     if [ -n "$ZSH_VERSION" ]; then
         if [ -f ~/.zshrc ]; then
@@ -94,6 +101,7 @@ reload() {
     fi
 }
 
+# Make a new directory and change into it
 mcd () {
     case $# in
     1)
@@ -106,10 +114,12 @@ mcd () {
     esac
 }
 
+# Find aliases containing search text
 finda() {
     alias | grep "$1"
 }
 
+# Git add, commit and push in one shot
 gacp () {
     git add . && git commit -a -m "$1" && git push
 }

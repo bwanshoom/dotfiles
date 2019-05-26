@@ -132,4 +132,6 @@ alias gac="git add . && git commit -a -m "
 # search through terminal history
 alias hs='history | grep'
 
+# See set
+# View environment variables
 alias seet='set | less'
