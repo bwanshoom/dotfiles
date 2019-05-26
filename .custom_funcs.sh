@@ -89,8 +89,8 @@ reload() {
         if [ -f ~/.bashrc ]; then
             source ~/.bashrc
         fi
-    else
-       # asume something else
+   # asume something else
+    # else
     fi
 }
 
