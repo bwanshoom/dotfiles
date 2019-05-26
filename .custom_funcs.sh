@@ -58,6 +58,16 @@ fext() {
     fi
 }
 
+# Show top 10 largest files in current directory and below
+bigf() {
+    find -xdev -type f -size +100M -exec du -Sh {} + 2>/dev/null | sort -rh | head -10
+}
+
+# Show top 10 largest directories in current directory and below
+bigd() {
+    \du -hsx * 2>/dev/null | sort -rh | head -10
+}
+
 fext2() {
     if [ "$#" -ne 1 ]; then
         echo "USAGE : fext2 extension"
