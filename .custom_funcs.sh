@@ -109,6 +109,11 @@ mcd () {
 finda() {
     alias | grep "$1"
 }
+
+gacp () {
+    git add . && git commit -a -m "$1" && git push
+}
+
 #####################################
 # End custom functions
 #####################################
