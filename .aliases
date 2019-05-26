@@ -113,8 +113,9 @@ command -v md5sum > /dev/null || alias md5sum="md5"
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
 
 # Trim new lines and copy to clipboard
-# No idea how this is supposed to be used
-alias c="tr -d '\\n' | xclip -selection clipboard"
+# Used in a pipe. Not sure why I'd want to remove the newlines, tho
+# alias c="tr -d '\\n' | xclip -selection clipboard"
+alias c="xsel -ib"
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
