@@ -1,0 +1,33 @@
+[user]
+	name = Brian Berry
+	email = brian@bwantech.net
+[core]
+	autocrlf = input
+	editor = subl
+[giggle]
+	main-window-maximized = false
+	main-window-geometry = 1051x797+1921+24
+	history-view-vpane-position = 197
+	main-window-view = HistoryView
+	file-view-vpane-position = 571
+	file-view-hpane-position = 226
+[help]
+	autocorrect = 1
+[color]
+	ui = auto
+[alias]
+	lga = log --oneline --all --decorate --graph
+	ls = log --pretty=format:"%C(yellow)%h%C(#ff69b4)%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%C(#ff69b4)%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --numstat
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%C(#ff69b4)%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=short
+	ld = log --pretty=format:"%C(yellow)%h\\ %ad%C(#ff69b4)%d\\ %Creset%s%C(cyan)\\ [%cn]" --decorate --date=relative
+	fl = log -u
+	dl = "!git ll -1"
+	dlc = diff --cached HEAD^
+	f = "!git ls-files | grep -i"
+	grep = grep -Ii
+	gr = grep -Ii
+	la = "!git config -l | grep alias | cut -c 7-"
+[push]
+	default = simple
