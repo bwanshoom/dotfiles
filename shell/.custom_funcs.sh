@@ -91,10 +91,14 @@ reload() {
     if [ -n "$ZSH_VERSION" ]; then
         if [ -f ~/.zshrc ]; then
             source ~/.zshrc
+        else
+            echo "File not found: ~/.zshrc"
         fi
     elif [ -n "$BASH_VERSION" ]; then
         if [ -f ~/.bashrc ]; then
             source ~/.bashrc
+        else
+            echo "File not found: ~/.bashrc"
         fi
    # asume something else
     # else
