@@ -105,6 +105,7 @@ alias nowtime=now
 alias nowdate='date +"%m-%d-%Y"'
 # Get week number
 alias week='date +%V'
+alias ts='date +%Y%m%d'
 
 # OS X has no `md5sum`, so use `md5` as a fallback
 command -v md5sum > /dev/null || alias md5sum="md5"
@@ -135,3 +136,6 @@ alias hs='history | grep'
 # See set
 # View environment variables
 alias seet='set | less'
+
+# Show custom functions (probably on in zsh)
+alias funcs='print -l ${(ok)functions} | less'

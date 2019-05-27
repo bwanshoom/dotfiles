@@ -99,15 +99,15 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-if [ -f ~/dotfiles/.aliases ]; then
-    . ~/dotfiles/.aliases
+if [ -f ~/dotfiles/shell/.aliases ]; then
+    . ~/dotfiles/shell/.aliases
 fi
-if [ -f ~/dotfiles/.grep_colors.sh ]; then
-    . ~/dotfiles/.grep_colors.sh
+if [ -f ~/dotfiles/shell/.grep_colors.sh ]; then
+    . ~/dotfiles/shell/.grep_colors.sh
 fi
 
-if [ -f ~/dotfiles/.custom_funcs.sh ]; then
-    . ~/dotfiles/.custom_funcs.sh
+if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
+    . ~/dotfiles/shell/.custom_funcs.sh
 fi
 
 path+=('/home/brian/scripts')
