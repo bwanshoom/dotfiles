@@ -13,6 +13,7 @@ Install zsh:
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
-4. Update git email address:
+4. Edit .gitconfig:
 
-`git config --global user.email "brian.berry@nist.gov"`
+`[include]`
+`path = ~/dotfiles/git/.gitconfig_inc`
