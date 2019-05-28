@@ -2,6 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+if grep -q Microsoft /proc/version; then
+	if test -t 1; then
+		exec zsh
+	fi
+fi
+
 #####################################
 # Begin custom functions
 #####################################
