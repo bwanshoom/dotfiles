@@ -144,15 +144,15 @@ esac
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-if [ -f ~/dotfiles/.aliases ]; then
-    source ~/dotfiles/.aliases
+if [ -f ~/dotfiles/shell/.aliases ]; then
+    source ~/dotfiles/shell/.aliases
 fi
-if [ -f ~/dotfiles/.grep_colors.sh ]; then
-    source ~/dotfiles/.grep_colors.sh
+if [ -f ~/dotfiles/shell/.grep_colors.sh ]; then
+    source ~/dotfiles/shell/.grep_colors.sh
 fi
 
-if [ -f ~/dotfiles/.custom_funcs.sh ]; then
-    source ~/dotfiles/.custom_funcs.sh
+if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
+    source ~/dotfiles/shell/.custom_funcs.sh
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -169,7 +169,9 @@ fi
 export PROMPT_DIRTRIM=1
 export LD_LIBRARY_PATH=/usr/local/lib
 
-add_to_path /home/brian/scripts "end"
+if [ -d ~/scripts ]; then
+	add_to_path ~/scripts "end"
+fi
 
 export PATH
 export EDITOR='subl -w'

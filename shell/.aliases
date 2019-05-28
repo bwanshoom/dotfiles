@@ -122,7 +122,11 @@ alias c="xsel -ib"
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
 # Pipe my public key to my clipboard.
-alias pubkey="more ~/.ssh/id_rsa.pub | xclip -selection clipboard | echo '=> Public key copied to pasteboard.'"
+if grep -q Microsoft /proc/version; then
+	alias pubkey="clip.exe < ~/.ssh/id_rsa.pub | echo '=> Public key copied to pasteboard.'"
+else
+        alias pubkey="more ~/.ssh/id_rsa.pub | xclip -selection clipboard | echo '=> Public key copied to pasteboard.'"
+fi
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
