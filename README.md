@@ -15,6 +15,7 @@ Install zsh:
 
 4. Edit .gitconfig:
 
-`[include]`
-
-`path = ~/dotfiles/git/.gitconfig_inc`
+```
+[include]
+path = ~/dotfiles/git/.gitconfig_inc
+```
