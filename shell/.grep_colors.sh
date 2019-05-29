@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # skip this file if the terminal can't support at least eight colors
 if [[ $(tput colors 2>/dev/null) -lt 8 ]]; then
