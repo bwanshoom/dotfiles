@@ -110,7 +110,7 @@ if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
     . ~/dotfiles/shell/.custom_funcs.sh
 fi
 
-path+=('/home/brian/scripts')
+path+=('~/scripts')
 
 export PATH
 export EDITOR='subl -w'
