@@ -13,7 +13,16 @@ Install zsh:
 
 `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
 
-4. Edit ~/.gitconfig:
+4. Create symlinks to .bashrc & .zshrc:
+
+```
+mv ~/.bashrc ~/.bashrc.bak
+mv ~/.zshrc ~/.zshrc.bak
+ln -s ~/dotfiles/shell/.bashrc ~/.bashrc
+ln -s ~/dotfiles/shell/.zshrc ~/.zshrc
+```
+
+5. Edit ~/.gitconfig:
 
 ```
 [include]
