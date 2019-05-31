@@ -8,19 +8,19 @@ sudo apt-get install zsh curl git xsel
 
 2. Install powerline font:
 
-#### For Linux:  
+    #### For Linux:  
 ```
-sudo apt-get install fonts-powerline
+    sudo apt-get install fonts-powerline
 ```
 
-#### For Windows:  
-a. Go to https://github.com/powerline/fonts  
-b. Click "Clone or download"  
-c. Click "Download ZIP"  
-d. Extract fonts-master.zip  
-e. Open an Admin PowerShell session  
-f. Go to where fonts-master.zip was extracted and run  
-` install.ps1`
+    #### For Windows:  
+    a. Go to https://github.com/powerline/fonts  
+    b. Click "Clone or download"  
+    c. Click "Download ZIP"  
+    d. Extract fonts-master.zip  
+    e. Open an Admin PowerShell session  
+    f. Go to where fonts-master.zip was extracted and run  
+    ` install.ps1`
 
 3. Install oh-my-zsh  
 ```
