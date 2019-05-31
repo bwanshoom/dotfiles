@@ -10,9 +10,9 @@ sudo apt-get install zsh curl git xsel
 
     #### For Linux:  
     ```
-    sudo apt-get install fonts-powerline
+   sudo apt-get install fonts-powerline
     ```
-
+    
     #### For Windows:  
     a. Go to https://github.com/powerline/fonts  
     b. Click "Clone or download"  
