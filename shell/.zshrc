@@ -2,14 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="~/.oh-my-zsh"
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="agnoster"
-#ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -71,6 +71,10 @@ ZSH_THEME="agnoster"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git extract z colored-man-pages zsh-syntax-highlighting zsh-autosuggestions)
 
+if [ -f ~/.zsh_override ]; then
+    source ~/.zsh_override
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -113,7 +117,6 @@ fi
 path+=('~/scripts')
 
 export PATH
-export EDITOR='subl -w'
 
 if [ -f ~/dotfiles/shell/.dircolors ]; then
 	eval `dircolors ~/dotfiles/shell/.dircolors`
