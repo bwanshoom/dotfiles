@@ -79,10 +79,10 @@ fext2() {
 
 # Show these custom functions
 show_funcs() {
-    if [ -f ~/dotfiles/.custom_funcs.sh ]; then
-        cat ~/dotfiles/.custom_funcs.sh | less
+    if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
+        cat ~/dotfiles/shell/.custom_funcs.sh | less
     else
-        echo "File not found: ~/dotfiles/.custom_funcs.sh"
+        echo "File not found: ~/dotfiles/shell/.custom_funcs.sh"
     fi
 }
 

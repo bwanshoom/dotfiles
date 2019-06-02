@@ -8,8 +8,8 @@ export ZSH=~/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -114,14 +114,25 @@ if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
     . ~/dotfiles/shell/.custom_funcs.sh
 fi
 
-path+=('~/scripts')
+PATH=~/scripts:$PATH
 
 export PATH
 
-if [ -f ~/dotfiles/shell/.dircolors ]; then
-	eval `dircolors ~/dotfiles/shell/.dircolors`
-fi
+# if [ -f ~/dotfiles/shell/.dircolors ]; then
+# 	eval `dircolors ~/dotfiles/shell/.dircolors`
+# fi
 
 case $(uname -a) in
    *Microsoft*) unsetopt BG_NICE ;;
 esac
+
+if [ -f /home/brian/.zplugin/bin/zplugin.zsh ]; then
+    ### Added by Zplugin's installer
+    source '/home/brian/.zplugin/bin/zplugin.zsh'
+    autoload -Uz _zplugin
+    (( ${+_comps} )) && _comps[zplugin]=_zplugin
+    ### End of Zplugin's installer chunk
+fi
+
+zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
+zplugin load trapd00r/LS_COLORS
