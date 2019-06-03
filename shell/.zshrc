@@ -88,7 +88,13 @@ if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
     . ~/dotfiles/shell/.custom_funcs.sh
 fi
 
-PATH=~/scripts:$PATH
+if [ -d ~/scripts ]; then
+    PATH=~/scripts:$PATH
+fi
+
+if [ -d /usr/local/go ]; then
+    PATH=$PATH:/usr/local/go/bin
+fi
 
 export PATH
 

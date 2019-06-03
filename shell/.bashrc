@@ -179,5 +179,9 @@ if [ -d ~/scripts ]; then
 	add_to_path ~/scripts "end"
 fi
 
+if [ -d /usr/local/go ]; then
+    add_to_path /usr/local/go/bin "end"
+fi
+
 export PATH
 export EDITOR='subl -w'

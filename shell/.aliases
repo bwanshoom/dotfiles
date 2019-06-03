@@ -130,7 +130,7 @@ else
 fi
 
 # Print each PATH entry on a separate line
-alias path="echo -e ${PATH//:/\\n}"
+alias path='echo -e ${PATH//:/\\n}'
 
 # git add & commit in one shot
 alias gac="git add . && git commit -a -m "
