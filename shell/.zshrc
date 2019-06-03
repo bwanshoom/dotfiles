@@ -77,32 +77,6 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 if [ -f ~/dotfiles/shell/.aliases ]; then
     . ~/dotfiles/shell/.aliases
 fi
@@ -126,13 +100,13 @@ case $(uname -a) in
    *Microsoft*) unsetopt BG_NICE ;;
 esac
 
-if [ -f /home/brian/.zplugin/bin/zplugin.zsh ]; then
+if [ -f ~/.zplugin/bin/zplugin.zsh ]; then
     ### Added by Zplugin's installer
     source '/home/brian/.zplugin/bin/zplugin.zsh'
     autoload -Uz _zplugin
     (( ${+_comps} )) && _comps[zplugin]=_zplugin
     ### End of Zplugin's installer chunk
-fi
 
-zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
-zplugin load trapd00r/LS_COLORS
+    zplugin ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh"
+    zplugin load trapd00r/LS_COLORS
+fi
