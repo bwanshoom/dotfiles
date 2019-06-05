@@ -39,7 +39,15 @@ sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CU
 sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
-6. Edit ~/.gitconfig:  
+6. Configure git  
+```
+#  Set your username:
+git config --global user.name "Brian Berry"
+#  Set your email address:
+git config --global user.email "brian.berry@nist.gov"
+```
+
+7. Edit ~/.gitconfig:  
 ```
 [include]
     path = ~/dotfiles/git/.gitconfig_inc
