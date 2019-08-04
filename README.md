@@ -33,7 +33,21 @@ ln -s ~/dotfiles/shell/.bashrc ~/.bashrc
 ln -s ~/dotfiles/shell/.zshrc ~/.zshrc
 ```
 
-5. Edit ~/.gitconfig:  
+5. Install Plug-ins:  
+```
+sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+sudo git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
+
+6. Configure git  
+```
+#  Set your username:
+git config --global user.name "Brian Berry"
+#  Set your email address:
+git config --global user.email "brian.berry@nist.gov"
+```
+
+7. Edit ~/.gitconfig:  
 ```
 [include]
     path = ~/dotfiles/git/.gitconfig_inc
