@@ -149,7 +149,7 @@ alias funcs="print -l ${(ok)functions} | less"
 # Python/pip
 ##################
 # Update all installed packages
-alias pipup="pip freeze -local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs -n1 pip install -U"
+alias pipup="pip freeze --local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs -n1 pip install -U"
 
 # Do a pip freeze, but exclude certain pacakges
 alias pipfreezeignore="pip freeze | grep -vFxf ignore_requirements.txt"
