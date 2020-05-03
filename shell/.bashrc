@@ -8,57 +8,6 @@ if grep -q Microsoft /proc/version; then
 	fi
 fi
 
-#####################################
-# Begin custom functions
-#####################################
-
-# add_to_path()
-# {
-#     path_list=`echo $PATH | tr ':' ' '`
-#     new_dir=$1
-#     for d in $path_list
-#     do
-#     	if [ $d == $new_dir ]
-#     	then
-#     		return 0
-#     	fi
-#     done
-#     if [ -n $2 ] && [ $2 == "end" ]
-#     then
-# 	    export PATH=$PATH:$new_dir
-# 	else
-# 	    export PATH=$new_dir:$PATH
-# 	fi
-# }
-
-# install_from_file()
-# {
-#     xargs -a <(awk '! /^ *(#|$)/' "$1") -r -- sudo apt-get install -y
-#     # xargs -a <(awk '! /^ *(#|$)/' "$packagelist") -r -- sudo apt-get install -y
-# }
-
-
-# dir_size()
-# {
-#     du -h --max-depth=1 "$1" 2>/dev/null | sort -hr
-# }
-
-# mygrep () {
-#     find . -name "$2"  2>/dev/null -exec grep "$1" {} +
-# }
-
-# ffind() {
-#     find . -name "$1*" 2>/dev/null
-# }
-
-# fext() {
-#     find . -type f -name "*.$1" 2>/dev/null
-# }
-
-#####################################
-# End custom functions
-#####################################
-
 
 # If not running interactively, don't do anything
 case $- in
@@ -130,36 +79,21 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-# if [ -x /usr/bin/dircolors ]; then
-#     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-#     alias ls='ls --color=auto -lhart'
-#     #alias dir='dir --color=auto'
-#     #alias vdir='vdir --color=auto'
+for DOTFILE in `find /~/dotfiles/shell/.dotfiles`
+do
+  [ -f "$DOTFILE" ] && source "$DOTFILE"
+done
 
-#     alias grep='grep --color=auto'
-#     alias fgrep='fgrep --color=auto'
-#     alias egrep='egrep --color=auto'
+# if [ -f ~/dotfiles/shell/.aliases ]; then
+#     source ~/dotfiles/shell/.aliases
+# fi
+# if [ -f ~/dotfiles/shell/.grep_colors.sh ]; then
+#     source ~/dotfiles/shell/.grep_colors.sh
 # fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/dotfiles/shell/.aliases ]; then
-    source ~/dotfiles/shell/.aliases
-fi
-if [ -f ~/dotfiles/shell/.grep_colors.sh ]; then
-    source ~/dotfiles/shell/.grep_colors.sh
-fi
-
-if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
-    source ~/dotfiles/shell/.custom_funcs.sh
-fi
+# if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
+#     source ~/dotfiles/shell/.custom_funcs.sh
+# fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -173,7 +107,7 @@ if ! shopt -oq posix; then
 fi
 
 export PROMPT_DIRTRIM=1
-export LD_LIBRARY_PATH=/usr/local/lib
+# export LD_LIBRARY_PATH=/usr/local/lib
 
 if [ -d ~/scripts ]; then
 	add_to_path ~/scripts "end"
@@ -184,4 +118,9 @@ if [ -d /usr/local/go ]; then
 fi
 
 export PATH
-export EDITOR='subl -w'
+# export EDITOR='subl -w'
+
+# export RESTIC_PASSWORD_FILE=/home/brian/restic-pw.txt
+# export B2_ACCOUNT_KEY="K001J1uEyinMKIgR+fcuztYy9w/hIMU"
+# export B2_ACCOUNT_ID="001b6a4b1026da20000000002"
+source /home/brian/Apps/vcpkg/scripts/vcpkg_completion.bash
