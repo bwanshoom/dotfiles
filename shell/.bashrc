@@ -79,7 +79,7 @@ xterm*|rxvt*)
     ;;
 esac
 
-for DOTFILE in `find /~/dotfiles/shell/.dotfiles`
+for DOTFILE in `find ~/dotfiles/shell/.dotfiles`
 do
   [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
@@ -120,7 +120,4 @@ fi
 export PATH
 # export EDITOR='subl -w'
 
-# export RESTIC_PASSWORD_FILE=/home/brian/restic-pw.txt
-# export B2_ACCOUNT_KEY="K001J1uEyinMKIgR+fcuztYy9w/hIMU"
-# export B2_ACCOUNT_ID="001b6a4b1026da20000000002"
 source /home/brian/Apps/vcpkg/scripts/vcpkg_completion.bash

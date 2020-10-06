@@ -1,4 +1,5 @@
 #!/bin/sh
+setopt rcquotes
 
 # Easier navigation
 alias ..="cd .."
@@ -32,7 +33,8 @@ alias ls="ls ${colorflag} -lhart"
 alias lsd="ls -lhF ${colorflag} | grep --color=never '^d'"
 
 # apt
-alias apt-update="sudo apt update && sudo apt upgrade"
+# No sudo if using the sudoers file
+alias apt-update="apt update && apt upgrade"
 
 # Always enable colored `grep` output
 # Note: `GREP_OPTIONS="--color=auto"` is deprecated, hence the alias usage.
@@ -42,7 +44,8 @@ alias egrep="egrep --color=auto"
 
 # IP addresses
 alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
+# alias localip="ipconfig getifaddr en0"
+alias localip="hostname -I | awk ''{print $1}''"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # File/Directory
@@ -142,8 +145,10 @@ alias hs="history | grep"
 # View environment variables
 alias seet="set | less"
 
-# Show custom functions (probably on in zsh)
+# Show custom functions (probably only in zsh)
+if [ -n "$ZSH_VERSION" ]; then
 alias funcs="print -l ${(ok)functions} | less"
+fi
 
 ##################
 # Python/pip
