@@ -77,21 +77,11 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
+# Load aliases, dircolors, etc.
 for DOTFILE in `find ~/dotfiles/shell/.dotfiles`
 do
   [ -f "$DOTFILE" ] && source "$DOTFILE"
 done
-
-# if [ -f ~/dotfiles/shell/.aliases ]; then
-#     . ~/dotfiles/shell/.aliases
-# fi
-# if [ -f ~/dotfiles/shell/.grep_colors.sh ]; then
-#     . ~/dotfiles/shell/.grep_colors.sh
-# fi
-
-# if [ -f ~/dotfiles/shell/.custom_funcs.sh ]; then
-#     . ~/dotfiles/shell/.custom_funcs.sh
-# fi
 
 if [ -d ~/scripts ]; then
     PATH=~/scripts:$PATH
@@ -102,10 +92,6 @@ if [ -d /usr/local/go ]; then
 fi
 
 export PATH
-
-# if [ -f ~/dotfiles/shell/.dircolors ]; then
-# 	eval `dircolors ~/dotfiles/shell/.dircolors`
-# fi
 
 case $(uname -a) in
    *Microsoft*) unsetopt BG_NICE ;;
@@ -127,10 +113,3 @@ PERL5LIB="/home/brian/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB
 PERL_LOCAL_LIB_ROOT="/home/brian/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/brian/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/brian/perl5"; export PERL_MM_OPT;
-
-# export RESTIC_PASSWORD_FILE=/home/brian/restic-pw.txt
-# export B2_ACCOUNT_KEY="K001J1uEyinMKIgR+fcuztYy9w/hIMU"
-# export B2_ACCOUNT_ID="001b6a4b1026da20000000002"
-
-# export NODE_TLS_REJECT_UNAUTHORIZED=0
-# export VCPKG_ROOT=/home/brian/Apps/vcpkg

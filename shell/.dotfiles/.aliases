@@ -45,7 +45,7 @@ alias egrep="egrep --color=auto"
 # IP addresses
 alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
 # alias localip="ipconfig getifaddr en0"
-alias localip="hostname -I | awk ''{print $1}''"
+alias localip="hostname -I | awk '{print $1}'"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # File/Directory
